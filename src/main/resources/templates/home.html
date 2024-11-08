@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+</head>
+<body>
+<div th:insert="fragments/menu :: menu"></div>
+
+<h1>Bem-vindo ao Sistema de Gerenciamento de Cursos</h1>
+<p>Escolha uma das opções no menu para navegar pelo sistema.</p>
+
+<div>
+  <h2>Opções</h2>
+  <ul>
+    <li><a th:href="@{/cursos}">Ver Cursos</a></li>
+    <li><a th:href="@{/matriculas/meus-cursos}">Meus Cursos</a></li>
+  </ul>
+</div>
+</body>
+</html>

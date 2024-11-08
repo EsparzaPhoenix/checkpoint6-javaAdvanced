@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Menu</title>
+</head>
+<body>
+<div th:fragment="menu">
+  <nav>
+    <ul>
+      <li><a th:href="@{/home}">Home</a></li>
+      <li><a th:href="@{/cursos}">Cursos</a></li>
+      <li><a th:href="@{/matriculas/meus-cursos}">Meus Cursos</a></li>
+      <li th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')}">
+        <a th:href="@{/usuarios/listar}">Gerenciar Usuários</a>
+      </li>
+      <li th:if="${#authorization.expression('isAuthenticated()')}">
+        <a th:href="@{/logout}">Sair</a>
+      </li>
+      <li th:if="${#authorization.expression('isAnonymous()')}">
+        <a th:href="@{/login}">Entrar</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+</body>
+</html>

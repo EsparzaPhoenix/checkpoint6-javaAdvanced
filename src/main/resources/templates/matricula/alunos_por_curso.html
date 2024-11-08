@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Alunos no Curso</title>
+</head>
+<body>
+<div th:insert="fragments/menu :: menu"></div>
+
+<h1>Alunos Matriculados no Curso</h1>
+<h2 th:text="${curso.nome}">Nome do Curso</h2>
+<table>
+  <tr>
+    <th>Nome do Aluno</th>
+    <th>Data de Matrícula</th>
+    <th>Status</th>
+  </tr>
+  <tr th:each="matricula : ${matriculas}">
+    <td th:text="${matricula.usuario.username}">Nome do Aluno</td>
+    <td th:text="${#dates.format(matricula.dataMatricula, 'dd/MM/yyyy')}">Data</td>
+    <td th:text="${matricula.status}">Status</td>
+  </tr>
+</table>
+
+<a th:href="@{/cursos}">Voltar aos Cursos</a>
+</body>
+</html>

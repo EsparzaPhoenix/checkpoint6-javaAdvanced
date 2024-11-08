@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Curso</title>
+</head>
+<body>
+<div th:insert="fragments/menu :: menu"></div>
+
+<h1 th:text="${curso.nome}">Nome do Curso</h1>
+<p th:text="${curso.descricao}">Descrição do curso</p>
+<p th:text="'Carga Horária: ' + ${curso.cargaHoraria} + ' horas'">Carga Horária</p>
+
+<a th:href="@{/cursos}">Voltar à lista de cursos</a>
+</body>
+</html>
